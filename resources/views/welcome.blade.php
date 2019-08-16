@@ -9,7 +9,7 @@
     .team .row .col-md-4 {
       margin-bottom: 5em;
     }
-    .row {
+    .team .row {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -17,7 +17,7 @@
       flex-wrap: wrap;
     }
 
-    .row > [class*='col-'] {
+    .team .row > [class*='col-'] {
       display: flex;
       flex-direction: column;
     }
@@ -85,29 +85,33 @@
             </div>
 
       <div class="section text-center">
-        <h2 class="title">Productos disponibles</h2>
+        <h2 class="title">Visita nuestras categorias</h2>
+
+        <form class="form-inline" method="get" action="{{ url('/search') }}">
+            <input type="text" placeholder="¿Que producto buscas?" class="form-control" name="query">
+            <button class="btn btn-primary btn-just-icon" type="submit">
+              <i class="material-icons">search</i>
+            </button>
+        </form>
 
         <div class="team">
           <div class="row">
-            @foreach ($products as $product)
+            @foreach ($categories as $category)
               <div class="col-md-4">
               <div class="team-player">
-                <img src="{{ $product->featured_image_url  }}" alt="Thumbnail Image" class="img-raised img-circle"> <!--  $product->images()->first()->image-->
+                <img src="{{ $category->featured_image_url  }}" alt="Imagen representativa de la categoria {{ $category->name }}" class="img-raised img-circle"> <!--  $product->images()->first()->image-->
                 <h4 class="title">
-                  <a href="{{ url('/products/'.$product->id ) }}"> {{ $product->name }}
+                  <a href="{{ url('/categories/'.$category->id ) }}"> {{ $category->name }}
                   <br />
-                  <small class="text-muted">{{ $product->category->name }}</small>
                 </h4>
-                <p class="description">{{ $product->description }}</p>
+                <p class="description">{{ $category->description }}</p>
               </div>
             </div>
             @endforeach
           </div>
 
         </div>
-        <div class="text-center">
-          {{ $products->links() }}
-        </div>
+
       </div>
 
 
