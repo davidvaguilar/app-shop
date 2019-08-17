@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
 use App\ProductImage;
-Use File;
+use File;
 
 class ImageController extends Controller
 {
