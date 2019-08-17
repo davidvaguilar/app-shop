@@ -2,6 +2,14 @@
 
 return [
 
+  /*  'stream' => [
+        'ssl' => [
+            'allow_self_signed' => true,
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+        ],
+    ],*/
+
     /*
     |--------------------------------------------------------------------------
     | Mail Driver
@@ -56,8 +64,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'hola@makarena.cl'),
+        'name' => env('MAIL_FROM_NAME', 'App Shop'),
     ],
 
     /*
@@ -119,5 +127,6 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+
 
 ];
